@@ -23,8 +23,11 @@ body {
     margin-right: 6%;
 }
 .filterButton {
+    display: inline-block;
     background-color: #f5f5f5;
-    border: none;
+    border: 1px transparent;
+    border-radius: 3px;
+    padding: 2.5px;
     font-size: calc(11px + 0.7vh);
     font-weight: 400;
     color: #828282;
@@ -37,7 +40,6 @@ body {
 .filterButton:active {
     background-color: #333333;
     color: #ffffff;
-    border-radius: 3px;
 }
 main {
     display: flex;
