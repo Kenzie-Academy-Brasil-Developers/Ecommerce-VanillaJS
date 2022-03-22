@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="reset.css" />
+        <link rel="stylesheet" href="stylesheet.css" />
+        <title>Weartake Store</title>
+    </head>
+    <body>
+        <header class="header">
+            <h1 class="logo">Weartake</h1>
+            <form class="filter">
+                <button class="filterButton">Todos</button>
+                <button class="filterButton">Acessórios</button>
+                <button class="filterButton">Jaquetas</button>
+                <button class="filterButton">Camisetas</button>
+            </form>
+        </header>
+        <main>
+            <div class="products">
+                <div class="cards">
+                    <div class="containerImage">
+                        <img src="light-jacket.png" class="image" />
+                    </div>
+                    <div class="containerInfo">
+                        <p class="category">Jaquetas</p>
+                        <h2 class="productTitle">Lightweight Jacket</h2>
+                        <p class="description">Adicione um pouco de energia ao seu guarda-roupa de inverno com esta jaqueta vibrante...</p>
+                        <p class="price">R$ 100.00</p>
+                        <button class="addCart">Adicionar ao carrinho</button>
+                    </div>
+                </div>
+                <div class="cards">
+                    <div class="containerImage">
+                        <img src="hat.png" class="image" />
+                    </div>
+                    <div class="containerInfo">
+                        <p class="category">Acessórios</p>
+                        <h2 class="productTitle">Black Hat</h2>
+                        <p class="description">O gorro Next.js chegou! Esta beldade bordada tem um ajuste confortável que garante que...</p>
+                        <p class="price">R$ 100.00</p>
+                        <button class="addCart">Adicionar ao carrinho</button>
+                    </div>
+                </div>
+                <div class="cards">
+                    <div class="containerImage">
+                        <img src="mask.png" class="image" />
+                    </div>
+                    <div class="containerInfo">
+                        <p class="category">Acessórios</p>
+                        <h2 class="productTitle">Mask</h2>
+                        <p class="description">Esta máscara facial durável é feita de duas camadas de tecido tratado e possui presilhas...</p>
+                        <p class="price">R$ 40.00</p>
+                        <button class="addCart">Adicionar ao carrinho</button>
+                    </div>
+                </div>
+                <div class="cards">
+                    <div class="containerImage">
+                        <img src="black-T-Shirt.png" class="image" />
+                    </div>
+                    <div class="containerInfo">
+                        <p class="category">Camisetas</p>
+                        <h2 class="productTitle">T-Shirt</h2>
+                        <p class="description">Esta t-shirt é imprescindível no seu guarda-roupa, combinando o caimento intemporal de...</p>
+                        <p class="price">R$ 100.00</p>
+                        <button class="addCart">Adicionar ao carrinho</button>
+                    </div>
+                </div>
+                <div class="cards">
+                    <div class="containerImage">
+                        <img src="white-T-Shirt.png" class="image" />
+                    </div>
+                    <div class="containerInfo">
+                        <p class="category">Camisetas</p>
+                        <h2 class="productTitle">Short-Sleeve T-Shirt</h2>
+                        <p class="description">Agora você encontrou a camiseta básica do seu guarda-roupa. É feito de um mais grosso...</p>
+                        <p class="price">R$ 100.00</p>
+                        <button class="addCart">Adicionar ao carrinho</button>
+                    </div>
+                </div>
+                <div class="cards">
+                    <div class="containerImage">
+                        <img src="black-jacket.png" class="image" />
+                    </div>
+                    <div class="containerInfo">
+                        <p class="category">Jaquetas</p>
+                        <h2 class="productTitle">Champion Packable Jacket</h2>
+                        <p class="description">Proteja-se dos elementos com esta jaqueta embalável Champion. Esta jaqueta de poliést...</p>
+                        <p class="price">R$ 100.00</p>
+                        <button class="addCart">Adicionar ao carrinho</button>
+                    </div>
+                </div>
+            </div>
+            <aside>
+                <form class="search">
+                    <input class="searchText" placeholder="Digite aqui sua pesquisa" />
+                    <button class="searchButton">Pesquisar</button>
+                </form>
+                <div class="cart">
+                    <header class="headerCart">Carrinho de compras</header>
+                    <div class="productsCart hide">
+                        <div class="productMini">
+                            <div class="containerImageMini">
+                                <img src="hat.png" class="imageMini" />
+                            </div>
+                            <div class="infoMini">
+                                <h3 class="productTitle">Black Hat</h3>
+                                <p class="price">R$ 100.00</p>
+                                <button class="removeCart">Remover produto</button>
+                            </div>
+                        </div>
+                    </div>
+                    <footer class="valuesCart hide">
+                        <div class="containerValues">
+                            <p class="values">Quantidade:</p>
+                            <p class="numValue">2</p>
+                        </div>
+                        <div class="containerValues">
+                            <p class="values">Total:</p>
+                            <p class="numValue">R$ 2299</p>
+                        </div>
+                    </footer>
+                </div>
+            </aside>
+        </main>
+    </body>
+</html>
