@@ -1,3 +1,5 @@
+/*A cor pedida em alguns textos não cumpria as normas WCAG de acessibilidade de texto, então tornei o texto um pouco mais escuro*/
+
 body {
     height: auto;
     min-height: 919px;
@@ -30,7 +32,7 @@ body {
     padding: 2.5px;
     font-size: calc(11px + 0.7vh);
     font-weight: 400;
-    color: #828282;
+    color: #696969; 
 }
 .filterButton:hover {
     cursor: pointer;
@@ -95,7 +97,7 @@ main {
 }
 .description {
     font-size: calc(8px + 0.7vh);
-    color: #828282;
+    color: #696969;
 }
 .price {
     font-size: calc(8px + 0.7vh);
@@ -107,10 +109,10 @@ main {
     border: none;
     background-color: transparent;
     font-size: calc(9px + 0.7vh);
-    color: #828282;
+    color: #696969;
     font-weight: 500;
     text-decoration-line: underline;
-    text-decoration-color: #828282;
+    text-decoration-color: #696969;
     cursor: pointer;
 }
 .addCart:hover {
@@ -215,11 +217,11 @@ aside {
     background-color: transparent;
     border: none;
     font-size: calc(8px + 0.7vh);
-    color: #828282;
+    color: #696969;
     cursor: pointer;
 }
 .removeCart:hover {
-    color: #333333;
+    color: #262626;
 }
 .valuesCart {
     background-color: #333333;
@@ -239,7 +241,7 @@ aside {
     font-weight: 500;
 }
 .numValue {
-    color: #828282;
+    color: #A3A3A3;
     font-weight: 400;
 }
 @media screen and (max-width: 629px) {
