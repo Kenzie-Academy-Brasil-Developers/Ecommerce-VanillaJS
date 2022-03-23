@@ -244,6 +244,15 @@ aside {
     color: #A3A3A3;
     font-weight: 400;
 }
+
+
+
+
+
+
+
+
+
 @media screen and (max-width: 629px) {
     main {
         display: flex;
@@ -292,4 +301,77 @@ aside {
     .hide {
         display: none;
    }
+}
+
+
+
+
+
+
+
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #171717;
+    }
+    .header {
+        background-color: #4A4A4A;
+    }
+    .filterButton {
+        background-color: #4A4A4A;
+        color: #C3C3C3;
+    }
+    .cards {
+        border-color: #4A4A4A;
+    }
+    .description {
+        color: #C3C3C3;
+    }
+    .price {
+        color: #C3C3C3;
+    }
+    .productTitle {
+        color: #C3C3C3;
+    }
+    .addCart {
+        color: #C3C3C3;
+        text-decoration-color: #C3C3C3;
+    }
+    .containerImage {
+        background-color: #4A4A4A;
+    }
+    .searchText {
+        background-color: #4A4A4A;
+        color: #f5f5f5;
+    }
+    .searchButton {
+        background-color: #2e245e;
+        color: #C3C3C3;
+    }
+    .searchButton:hover {
+        box-sizing: border-box;
+        border: 1px solid #696969;
+    }
+    .headerCart {
+        background-color: #2e245e;
+        color: #f5f5f5dc;
+    }
+    .productsCart {
+        background-color: #4A4A4A;
+    }
+    .productMini {
+        border: 1px solid #A3A3A3;
+    }
+    .containerImageMini {
+        background-color: #4A4A4A;
+    }
+    .removeCart {
+        color: #C3C3C3;
+    }
+    .removeCart:hover {
+        color: #FF4A4A;
+    }
+    .values {
+        color: #C3C3C3;
+    }
 }
