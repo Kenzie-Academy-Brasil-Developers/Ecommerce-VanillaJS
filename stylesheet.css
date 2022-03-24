@@ -134,22 +134,22 @@ main {
     min-height: 99px 
 }
 aside {
-    min-width: 216.25px;
+    min-width: fit-content;
+    width: 22vw;
     margin-right: 4vw;
 }
 .search {
     display: flex;
-    justify-content: space-between;
     height: 5vh;
     min-height: 34px;
-    width: 22vw;
+    justify-content: space-between;
     min-width: 216.25px;
     margin: 1.9vh 0;
 }
 .searchText {
     padding: 1vw;
     width: 59%;
-    min-width: 122.3px;
+    min-width: fit-content;
     font-size: calc(9px + 0.7vh);
     border: none;
     background-color: #f5f5f5;
@@ -170,7 +170,7 @@ aside {
     background-color: #2e245e;
 }
 .cart {
-    width: 22vw;
+    width: 100%;
     min-width: 216.25px;
 }
 .headerCart {
@@ -257,22 +257,44 @@ aside {
 
 
 
-@media screen and (max-width: 629px) {
+@media screen and (max-width: 933px) {
+    .filterButton:hover {
+        background-color: #f5f5f5;
+        color: #696969;
+    }
     main {
-        display: flex;
-        flex-direction: column-reverse;
+        display: block;
    }
     .products {
-        padding-left: 0;
-        max-width: none;
         width: 100%;
-        justify-content: space-evenly;
+        justify-content: space-between;
    }
     .cards {
         min-width: 0;
-        width: 46%;
-        margin-left: 0%;
-        margin: 5px;
+        width: 48%;
+        margin: 1.9vh 0;
+   }
+   .cards:hover {
+       border-color: #f5f5f5;
+   }
+   .addCart {
+       text-align: center;
+       background-color: #6b54de;
+       border: 1px solid transparent;
+       color: #f5f5f5;
+       font-weight: 900;
+       text-decoration: none;
+       font-size: calc(3px + 2.5vh);
+   }
+   .addCart:hover {
+       color: #f5f5f5;
+       text-decoration: none;
+   }
+   .addCart:active {
+       box-sizing: content-box;
+       border-color: #6b54de;
+       color: #6b54de;
+       background-color: transparent;
    }
     .filter {
         margin-right: 10px;
@@ -293,11 +315,11 @@ aside {
         min-height: none;
    }
     aside {
-        min-width: none;
+        width: 100%;
    }
     .search {
         width: auto;
-        justify-content: space-evenly;
+        justify-content: space-between;
    }
     .cart {
         width: auto;

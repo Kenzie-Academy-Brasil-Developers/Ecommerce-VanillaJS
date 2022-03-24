@@ -94,7 +94,11 @@ function createCards(categoria) {
 		productTitle.innerText = currentProduct.title;
 		description.innerText = currentProduct.description;
 		price.innerText = "R$ " + currentProduct.price + ".00";
-		addToCart.innerText = "Adicionar ao carrinho";
+		if (window.innerWidth < 933) {
+			addToCart.innerText = 'Comprar'
+		} else {addToCart.innerText = "Adicionar ao carrinho"}
+		;
+		
 		addToCart.id = currentProduct.cart
 
 		card.classList.add("cards");
