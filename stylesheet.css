@@ -26,7 +26,7 @@ body {
 }
 .filterButton {
     display: inline-block;
-    background-color: #f5f5f5;
+    background-color: transparent;
     border: 1px transparent;
     border-radius: 3px;
     padding: 2.5px;
@@ -335,17 +335,19 @@ aside {
 
 @media (prefers-color-scheme: dark) {
     body {
-        background-color: #171717;
+        background-color: rgb(1, 2, 12);
     }
     .header {
-        background-color: #4A4A4A;
+        background-color: #2e245e;
+    }
+    .logo {
+        color: #f5f5f5;
     }
     .filterButton {
-        background-color: #4A4A4A;
         color: #C3C3C3;
     }
     .cards {
-        border-color: #4A4A4A;
+        border-color: #828282;
     }
     .description {
         color: #C3C3C3;
@@ -361,11 +363,11 @@ aside {
         text-decoration-color: #C3C3C3;
     }
     .containerImage {
-        background-color: #4A4A4A;
+        background-color: #828282;
     }
     .searchText {
-        background-color: #4A4A4A;
-        color: #f5f5f5;
+        background-color: #828282;
+        color: black;
     }
     .searchButton {
         background-color: #2e245e;

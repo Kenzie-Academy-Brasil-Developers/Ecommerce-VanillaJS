@@ -167,32 +167,45 @@ function addOnCart(product) {
 	let infoMini = document.createElement("div");
 	let titleMini = document.createElement("h3");
 	let priceMini = document.createElement("p");
+	let quantityMini = document.createElement("p")
 	let removeCart = document.createElement("button");
 
+
 	imgMini.src = product.img;
-	titleMini.innerText = product.title;
-	priceMini.innerText = 'R$ ' + product.price + '.00';
 	removeCart.innerHTML = "Remover produto";
 	removeCart.id = product.removeCart
 	miniCard.id = product.cart
+	priceMini.innerText = 'R$ ' + product.price + '.00';
+	quantityMini.id = `amount${product.id}`
 
+	if (cartList.includes(product)) {
+		let amountP = document.getElementById(`amount${product.id}`)
+		let currentAmount = Number(amountP.innerText)
+		currentAmount += 1
+		quantityMini.innerText = currentAmount
+		console.log(currentAmount)
+		removeFromCart(product)
+	} else {
+		quantityMini.innerText = '1'
+	}
 	miniCard.classList.add('productsMini')
 	containerImgMini.classList.add('containerImageMini')
 	imgMini.classList.add('imageMini')
 	infoMini.classList.add('infoMini')
 	titleMini.classList.add('productTitle')
 	priceMini.classList.add('price')
+	quantityMini.classList.add('quantityMini')
 	removeCart.classList.add('removeCart')
 	removeCart.addEventListener('click', function() {
 		removeFromCart(product)
 	})
 
 	cartList.push(product)
-	console.log(cartList)
 
 	infoMini.appendChild(titleMini);
 	infoMini.appendChild(priceMini);
 	infoMini.appendChild(priceMini);
+	infoMini.appendChild(quantityMini)
 	infoMini.appendChild(removeCart)
 	containerImgMini.appendChild(imgMini);
 	miniCard.appendChild(containerImgMini);
@@ -207,17 +220,19 @@ function removeFromCart(product) {
 	let idRemove = product.cart
 	let toRemove = document.getElementById(idRemove)
 	cartContainer.removeChild(toRemove)
-	for (let i = 0; i < cartList.length; i++) {
+	let y = false
+	for (let i = 0; y == false; i++) {
 		if (cartList[i] == product) {
 			cartList.splice(i)
+			y = true
 		}
 	}
 	calcValue()
-
 }
 
 let amount = document.getElementById('amount')
 let total = document.getElementById('total')
+let valorTotal = 0
 
 function calcValue() {
 	let quantidade = cartList.length.toString()
