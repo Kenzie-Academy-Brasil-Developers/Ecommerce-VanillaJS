@@ -77,7 +77,7 @@ main {
     height: 100%;
     min-height: 174px;
     padding-left: 0.8vw;
-    padding-right: 0.6vw;
+    padding-right: 0.8vw;
 }
 .category {
     display: flex;
@@ -257,6 +257,21 @@ aside {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media screen and (max-width: 933px) {
     .filterButton:hover {
         background-color: #f5f5f5;
@@ -272,6 +287,7 @@ aside {
     .cards {
         min-width: 0;
         width: 48%;
+        border: 1px solid #f5f5f5;
         margin: 0;
         margin-bottom: 1.9vh;
    }
@@ -334,6 +350,19 @@ aside {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media (prefers-color-scheme: dark) {
     body {
         background-color: rgb(16, 18, 32);
@@ -348,7 +377,7 @@ aside {
         color: #C3C3C3;
     }
     .cards {
-        border-color: #828282;
+        border-color: #C3C3C3;
     }
     .description {
         color: #C3C3C3;
@@ -364,15 +393,15 @@ aside {
         text-decoration-color: #C3C3C3;
     }
     .containerImage {
-        background-color: #828282;
+        background-color: #C3C3C3;
     }
     .searchText {
-        background-color: #828282;
+        background-color: #C3C3C3;
         color: black;
     }
     .searchButton {
         background-color: #2e245e;
-        color: #C3C3C3;
+        color: #f5f5f5;
     }
     .searchButton:hover {
         box-sizing: border-box;
