@@ -263,3 +263,7 @@ function emptyCart() {
 	}
 }
 emptyCart()
+if (window.innerWidth < 933) {
+	let cartRemoveMobile = document.getElementById('cartHtml')
+	cartRemoveMobile.classList.add('hide')
+}
