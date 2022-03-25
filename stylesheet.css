@@ -335,7 +335,7 @@ aside {
 
 @media (prefers-color-scheme: dark) {
     body {
-        background-color: rgb(1, 2, 12);
+        background-color: rgb(16, 18, 32);
     }
     .header {
         background-color: #2e245e;
