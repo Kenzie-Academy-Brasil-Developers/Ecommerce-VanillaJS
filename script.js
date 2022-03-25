@@ -182,12 +182,11 @@ function addOnCart(product) {
 		let amountP = document.getElementById(`amount${product.id}`)
 		let currentAmount = Number(amountP.innerText)
 		currentAmount += 1
-		quantityMini.innerText = currentAmount
+		amountP.innerText = currentAmount
 		console.log(currentAmount)
-		removeFromCart(product)
 	} else {
 		quantityMini.innerText = '1'
-	}
+
 	miniCard.classList.add('productsMini')
 	containerImgMini.classList.add('containerImageMini')
 	imgMini.classList.add('imageMini')
@@ -200,7 +199,6 @@ function addOnCart(product) {
 		removeFromCart(product)
 	})
 
-	cartList.push(product)
 
 	infoMini.appendChild(titleMini);
 	infoMini.appendChild(priceMini);
@@ -211,23 +209,37 @@ function addOnCart(product) {
 	miniCard.appendChild(containerImgMini);
 	miniCard.appendChild(infoMini)
 	cartContainer.appendChild(miniCard);
+	let showValues = document.getElementById('values')
+	showValues.classList.remove('hide')
 	miniCard.classList.add("productMini");
-
+	}
+	cartList.push(product)
 	calcValue()
 }
 
 function removeFromCart(product) {
-	let idRemove = product.cart
-	let toRemove = document.getElementById(idRemove)
-	cartContainer.removeChild(toRemove)
+	let amountProduct = document.getElementById(`amount${product.id}`)
+	let amountRemove = Number(amountProduct.innerText)
+	if (amountRemove > 1) {
+		amountProduct.innerText = `${amountRemove - 1}`
+	} else { 
+		let idRemove = product.cart
+		let toRemove = document.getElementById(idRemove)
+		cartContainer.removeChild(toRemove)
+		let y = false 
+	}
 	let y = false
+	if (cartList.includes(product)) {
+
 	for (let i = 0; y == false; i++) {
 		if (cartList[i] == product) {
-			cartList.splice(i)
+			cartList.splice(i, 1)
 			y = true
 		}
 	}
+}
 	calcValue()
+	emptyCart()
 }
 
 let amount = document.getElementById('amount')
@@ -243,3 +255,11 @@ function calcValue() {
 	}
 	total.innerText = valorTotal
 }
+function emptyCart() {
+	if (cartList.length == 0) {
+		let cartRemove = document.getElementById('values')
+		cartRemove.classList.add('hide')
+
+	}
+}
+emptyCart()
