@@ -412,16 +412,16 @@ aside {
         color: #f5f5f5dc;
     }
     .productsCart {
-        background-color: #4A4A4A;
+        background-color: #2e245e;
     }
     .productMini {
         border: 1px solid #A3A3A3;
     }
     .containerImageMini {
-        background-color: #4A4A4A;
+        background-color: transparent;
     }
     .removeCart {
-        color: #C3C3C3;
+        color: #262626;
     }
     .removeCart:hover {
         color: #FF4A4A;
