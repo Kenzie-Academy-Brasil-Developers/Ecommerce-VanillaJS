@@ -88,7 +88,11 @@ function hideCart() {
 
 function headerCartCount() {
   quantityHeader.innerText = cartList.length;
+  quantityHeader.classList = "counterHeader";
   cartHeader.appendChild(quantityHeader);
+  if (cartIsEmpty()) {
+    quantityHeader.classList = "hide";
+  }
 }
 
 function cartToggle() {
@@ -299,12 +303,6 @@ function createCards() {
     description.innerText = elem.description;
     price.innerText = "R$ " + elem.price + ".00";
 
-    if (isMobile()) {
-      addToCart.innerText = "Comprar";
-    } else {
-      addToCart.innerText = "Adicionar ao carrinho";
-    }
-
     addToCart.id = `cart${elem.id}`;
     addToCart.addEventListener("click", function () {
       addOnCart(elem);
@@ -326,7 +324,22 @@ function createCards() {
     infoContainer.appendChild(productTitle);
     infoContainer.appendChild(description);
     infoContainer.appendChild(price);
-    infoContainer.appendChild(addToCart);
+    if (isMobile()) {
+      let addToCartContainer = document.createElement("div");
+      addToCartContainer.appendChild(addToCart);
+      card.appendChild(addToCartContainer);
+      addToCartContainer.classList = "containerAddToCart";
+      addToCart.innerText = "Comprar";
+	  addToCartContainer.addEventListener("click", function () {
+		  addOnCart(elem)
+	  })
+    } else {
+	  addToCart.addEventListener("click", function () {
+		addOnCart(elem);
+	  });
+      infoContainer.appendChild(addToCart);
+      addToCart.innerText = "Adicionar ao carrinho";
+    }
     containerProducts.appendChild(card);
   });
   main.appendChild(containerProducts);
