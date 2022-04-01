@@ -15,10 +15,10 @@
         <header class="header">
             <h1 class="logo">Weartake</h1>
             <div class="filter">
-                <button class="filterButton" id="todos" onclick="createCards('Todos')">Todos</button>
-                <button class="filterButton" id="acessorios" onclick="createCards('Acessórios')">Acessórios</button>
-                <button class="filterButton" id="jaquetas" onclick="createCards('Jaquetas')">Jaquetas</button>
-                <button class="filterButton" id="camisetas" onclick="createCards('Camisetas')">Camisetas</button>
+                <button class="filterButton" id="todos">Todos</button>
+                <button class="filterButton" id="acessorios" >Acessórios</button>
+                <button class="filterButton" id="jaquetas">Jaquetas</button>
+                <button class="filterButton" id="camisetas">Camisetas</button>
             </div>
         </header>
         <main>
@@ -28,7 +28,9 @@
                     <button class="searchButton" id="seachButton">Pesquisar</button>
                 </form>
                 <section class="cart" id="cartHtml">
-                    <div class="headerCart">Carrinho de compras</div>
+                    <div class="headerCart" id="cartHeader">
+                        <h4>Carrinho de compras</h4>
+                    </div>
                     <div class="productsCart">
                     </div>
                     <div class="valuesCart" id="values">
