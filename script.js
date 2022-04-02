@@ -58,6 +58,7 @@ const jacketC = {
     "Proteja-se dos elementos com esta jaqueta embalável Champion. Esta jaqueta de poliést...",
   price: 100,
 };
+
 const productsList = [jacketL, hat, mask, tshirtB, tshirtW, jacketC];
 const body = document.querySelector("body");
 const main = document.querySelector("main");
@@ -69,6 +70,26 @@ const quantityHtml = document.getElementById("quantityHtml");
 const totalHtml = document.getElementById("totalHtml");
 const quantityHeader = document.createElement("p");
 let cartList = [];
+
+createCards(productsList);
+cartAssets();
+mobileCartAssets();
+
+const todosButton = document.getElementById("todos");
+const acessoriosButton = document.getElementById("acessórios");
+const jaquetasButton = document.getElementById("jaquetas");
+const camisetasButton = document.getElementById("camisetas");
+const buttonsArray = [
+  todosButton,
+  acessoriosButton,
+  jaquetasButton,
+  camisetasButton,
+];
+const buttonsHtml = document.getElementById("filter");
+const filterImg = document.getElementById("filterImg");
+let filterWasClicked = false;
+
+filterToggle();
 
 function mobileCartAssets() {
   if (isMobile()) {
@@ -363,24 +384,6 @@ function filterButton(category) {
   createCards(filteredList);
 }
 
-createCards(productsList);
-cartAssets();
-mobileCartAssets();
-
-const todosButton = document.getElementById("todos");
-const acessoriosButton = document.getElementById("acessórios");
-const jaquetasButton = document.getElementById("jaquetas");
-const camisetasButton = document.getElementById("camisetas");
-const buttonsArray = [
-  todosButton,
-  acessoriosButton,
-  jaquetasButton,
-  camisetasButton,
-];
-const buttonsHtml = document.getElementById("filter");
-const filterImg = document.getElementById("filterImg");
-let filterWasClicked = false;
-
 function filterToggle() {
   if (filterWasClicked === true) {
     if (filterImg.classList == "filterImg") {
@@ -399,26 +402,24 @@ function filterToggle() {
   });
 }
 
-buttonsHtml.addEventListener("click", filterToggle);
+filterImg.addEventListener("click", filterToggle, false);
 
 buttonsArray.forEach((elem) => {
   elem.addEventListener("click", () => {
     filterButton(elem.id);
-  });
+  }, false);
 });
 
-filterToggle();
 body.addEventListener(
-  "mousedown",
+  "click",
   () => {
     buttonsArray.forEach(function (elem) {
       if (elem.classList != "hide") {
         elem.classList = "hide";
       }
-    });
+    },);
     if (filterImg.classList == "hide") {
       filterImg.classList = "filterImg";
     }
-  },
-  true
+  }, true
 );
