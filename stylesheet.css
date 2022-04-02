@@ -32,6 +32,14 @@
   }
   .filter {
     margin-right: 6%;
+    width: auto;
+    height: auto;
+  }
+  .filterImg {
+    background-color: var(--quariary-gray);
+    border-radius: 7px;
+    height: 3vh;
+    width: 3vh;
   }
   .filterButton {
     display: inline-block;
@@ -292,11 +300,8 @@
     display: none;
   }
 }
+
 @media screen and (max-width: 933px) {
-  .filterButton:hover {
-    background-color: var(--primary-gray);
-    color: var(--secondary-gray);
-  }
   main {
     display: block;
   }
@@ -336,9 +341,6 @@
     text-decoration: none;
     font-size: calc(3px + 2.5vh);
   }
-  .addCart:hover {
-    color: var(--primary-gray);
-  }
   .addCart:active {
     color: var(--secondary-color);
     text-decoration: none;
@@ -347,11 +349,23 @@
     border-color: var(--secondary-color);
     background-color: transparent;
   }
+  .containerFilter {
+    position: relative;
+    min-width: 3vh;
+    min-height: 3vh;
+  }
   .filter {
-    margin-right: 10px;
+    position: relative;
+    right: 13px;
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    background-color: var(--darker-gray);
+    border-radius: 10px;
   }
   .filterButton {
     font-size: calc(9px + 0.7vh);
+    margin: 2vh;
   }
   .logo {
     margin-left: 4px;
@@ -371,12 +385,6 @@
   .search {
     width: auto;
     justify-content: space-between;
-  }
-  .searchText {
-    width: 63%;
-  }
-  .searchButton {
-    width: 33%;
   }
   .cart {
     width: auto;
@@ -424,7 +432,7 @@
     color: var(--primary-gray);
   }
   .filterButton {
-    color: var(--quariary-gray);
+    color: var(--primary-gray);
   }
   .cards {
     border-color: var(--quariary-gray);

@@ -59,8 +59,7 @@ const jacketC = {
   price: 100,
 };
 const productsList = [jacketL, hat, mask, tshirtB, tshirtW, jacketC];
-const containerProducts = document.createElement("div");
-containerProducts.classList = "products";
+const body = document.querySelector("body");
 const main = document.querySelector("main");
 const cartContainer = document.querySelector(".productsCart");
 const cart = document.getElementById("cartHtml");
@@ -73,7 +72,9 @@ let cartList = [];
 
 function mobileCartAssets() {
   if (isMobile()) {
-    cartHeader.classList = "headerCart emptyHeader"
+    let quantityRemove = document.getElementById("quantityContainer");
+    values.removeChild(quantityRemove);
+    cartHeader.classList = "headerCart emptyHeader";
     cartHeader.addEventListener("click", () => {
       if (cartIsEmpty() === false) {
         cartToggle();
@@ -100,9 +101,9 @@ function cartToggle() {
   if (cartContainer.classList == "hide") {
     cartContainer.classList = "productsCart";
     values.classList = "valuesCart";
-    cartHeader.classList = "headerCart"
+    cartHeader.classList = "headerCart";
   } else {
-    cartHeader.classList = "headerCart emptyHeader"
+    cartHeader.classList = "headerCart emptyHeader";
     cartContainer.classList = "hide";
     values.classList = "hide";
   }
@@ -251,7 +252,7 @@ function addOnCart(product) {
 
     miniCard.classList = "productMini";
     imgMini.src = product.img;
-    imgMini.alt = product.imgTag
+    imgMini.alt = product.imgTag;
     removeCart.innerHTML = "Remover produto";
     removeCart.id = `remove${product.id}`;
     miniCard.id = `cart${product.id}`;
@@ -287,8 +288,11 @@ function addOnCart(product) {
   cartAssets();
 }
 
-function createCards() {
-  productsList.forEach(function (elem) {
+function createCards(productArray) {
+  let containerProducts = document.createElement("div");
+  containerProducts.classList = "products";
+  containerProducts.id = "containerProducts";
+  productArray.forEach(function (elem) {
     let card = document.createElement("div");
     let imgContainer = document.createElement("div");
     let image = document.createElement("img");
@@ -331,21 +335,90 @@ function createCards() {
       card.appendChild(addToCartContainer);
       addToCartContainer.classList = "containerAddToCart";
       addToCart.innerText = "Comprar";
-	  addToCartContainer.addEventListener("click", function () {
-		  addOnCart(elem)
-	  })
+      addToCartContainer.addEventListener("click", function () {
+        addOnCart(elem);
+      });
     } else {
-	  addToCart.addEventListener("click", function () {
-		addOnCart(elem);
-	  });
+      addToCart.addEventListener("click", function () {
+        addOnCart(elem);
+      });
       infoContainer.appendChild(addToCart);
       addToCart.innerText = "Adicionar ao carrinho";
     }
     containerProducts.appendChild(card);
   });
+
   main.appendChild(containerProducts);
 }
 
-createCards();
+function filterButton(category) {
+  main.removeChild(document.getElementById("containerProducts"));
+  let filteredList = productsList.filter((elem) => {
+    if ((category == elem.category.toLowerCase()) | (category == "todos")) {
+      return true;
+    } else {
+      return false;
+    }
+  });
+  createCards(filteredList);
+}
+
+createCards(productsList);
 cartAssets();
 mobileCartAssets();
+
+const todosButton = document.getElementById("todos");
+const acessoriosButton = document.getElementById("acessórios");
+const jaquetasButton = document.getElementById("jaquetas");
+const camisetasButton = document.getElementById("camisetas");
+const buttonsArray = [
+  todosButton,
+  acessoriosButton,
+  jaquetasButton,
+  camisetasButton,
+];
+const buttonsHtml = document.getElementById("filter");
+const filterImg = document.getElementById("filterImg");
+let filterWasClicked = false;
+
+function filterToggle() {
+  if (filterWasClicked === true) {
+    if (filterImg.classList == "filterImg") {
+      filterImg.classList = "hide";
+    } else if (filterImg.classList == "hide") {
+      filterImg.classList = "filterImg";
+    }
+  }
+  filterWasClicked = true;
+  buttonsArray.forEach(function (elem) {
+    if (elem.classList != "hide") {
+      elem.classList = "hide";
+    } else {
+      elem.classList = "filterButton";
+    }
+  });
+}
+
+buttonsHtml.addEventListener("click", filterToggle);
+
+buttonsArray.forEach((elem) => {
+  elem.addEventListener("click", () => {
+    filterButton(elem.id);
+  });
+});
+
+filterToggle();
+body.addEventListener(
+  "mousedown",
+  () => {
+    buttonsArray.forEach(function (elem) {
+      if (elem.classList != "hide") {
+        elem.classList = "hide";
+      }
+    });
+    if (filterImg.classList == "hide") {
+      filterImg.classList = "filterImg";
+    }
+  },
+  true
+);
