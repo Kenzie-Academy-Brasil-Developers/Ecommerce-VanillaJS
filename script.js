@@ -73,6 +73,7 @@ let cartList = [];
 
 function mobileCartAssets() {
   if (isMobile()) {
+    cartHeader.classList = "headerCart emptyHeader"
     cartHeader.addEventListener("click", () => {
       if (cartIsEmpty() === false) {
         cartToggle();
@@ -99,7 +100,9 @@ function cartToggle() {
   if (cartContainer.classList == "hide") {
     cartContainer.classList = "productsCart";
     values.classList = "valuesCart";
+    cartHeader.classList = "headerCart"
   } else {
+    cartHeader.classList = "headerCart emptyHeader"
     cartContainer.classList = "hide";
     values.classList = "hide";
   }
@@ -248,6 +251,7 @@ function addOnCart(product) {
 
     miniCard.classList = "productMini";
     imgMini.src = product.img;
+    imgMini.alt = product.imgTag
     removeCart.innerHTML = "Remover produto";
     removeCart.id = `remove${product.id}`;
     miniCard.id = `cart${product.id}`;
@@ -304,9 +308,6 @@ function createCards() {
     price.innerText = "R$ " + elem.price + ".00";
 
     addToCart.id = `cart${elem.id}`;
-    addToCart.addEventListener("click", function () {
-      addOnCart(elem);
-    });
 
     card.classList = "cards";
     imgContainer.classList = "containerImage";
