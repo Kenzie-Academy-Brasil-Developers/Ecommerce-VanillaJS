@@ -30,14 +30,16 @@
     font-weight: bold;
     font-size: calc(24px + 0.7vh);
   }
+  .containerFilter {
+    margin-right: 5.5%;
+  }
   .filter {
-    margin-right: 6%;
     width: auto;
     height: auto;
   }
   .filterImg {
     background-color: var(--quariary-gray);
-    border-radius: 7px;
+    border-radius: 4px;
     height: 3vh;
     width: 3vh;
   }
