@@ -69,6 +69,8 @@ const values = document.getElementById("values");
 const quantityHtml = document.getElementById("quantityHtml");
 const totalHtml = document.getElementById("totalHtml");
 const quantityHeader = document.createElement("p");
+const searchText = document.getElementById("searchText");
+const searchButton = document.getElementById("searchButton");
 let cartList = [];
 
 createCards(productsList);
@@ -88,6 +90,38 @@ const buttonsArray = [
 const buttonsHtml = document.getElementById("filter");
 const filterImg = document.getElementById("filterImg");
 let filterWasClicked = false;
+
+buttonsArray.forEach((elem) => {
+  elem.addEventListener(
+    "click",
+    () => {
+      filterButton(elem.id);
+    },
+    false
+  );
+});
+
+filterImg.addEventListener("click", filterToggle, false);
+
+body.addEventListener(
+  "click",
+  () => {
+    buttonsArray.forEach(function (elem) {
+      if (elem.classList != "hide") {
+        elem.classList = "hide";
+      }
+    });
+    if (filterImg.classList == "hide") {
+      filterImg.classList = "filterImg";
+    }
+  },
+  true
+);
+
+searchButton.addEventListener("click", function (e) {
+  e.preventDefault();
+  filterText();
+});
 
 filterToggle();
 
@@ -402,24 +436,21 @@ function filterToggle() {
   });
 }
 
-filterImg.addEventListener("click", filterToggle, false);
-
-buttonsArray.forEach((elem) => {
-  elem.addEventListener("click", () => {
-    filterButton(elem.id);
-  }, false);
-});
-
-body.addEventListener(
-  "click",
-  () => {
-    buttonsArray.forEach(function (elem) {
-      if (elem.classList != "hide") {
-        elem.classList = "hide";
-      }
-    },);
-    if (filterImg.classList == "hide") {
-      filterImg.classList = "filterImg";
+function filterText() {
+  let search = searchText.value.toLowerCase();
+  main.removeChild(document.getElementById("containerProducts"));
+  let filteredList = productsList.filter((elem) => {
+    let titleSearch = elem.title.toLowerCase()
+    let categorySearch = elem.category.toLowerCase()
+    if (
+      (categorySearch.includes(search)) |
+      (search == "todos") |
+      (titleSearch.includes(search))
+    ) {
+      return true;
+    } else {
+      return false;
     }
-  }, true
-);
+  });
+  createCards(filteredList);
+}
